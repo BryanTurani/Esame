@@ -21,7 +21,7 @@ namespace AssociazioneSportiva.Models
         public int PartitaIva { get; set; }
         
         [DisplayName("* Codice fiscale: ")]
-        public int CodFiscaleSoc { get; set; }
+        public string CodFiscaleSoc { get; set; }
 
         [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Indirizzo: ")]
@@ -41,7 +41,7 @@ namespace AssociazioneSportiva.Models
 
         [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Tipo di società: ")]
-        public List<TipoSocietà> Tipo { get; set; }
+        public List<TipoSocietà> TipoSocietà { get; set; }
 
         [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Indirizzo eMail: ")]
