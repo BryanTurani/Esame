@@ -1,0 +1,17 @@
+﻿.containerPadding {
+    padding-top: 40px;
+    height: 40px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.homeButton {
+    width: 300px;
+    height: 100px;
+    font-size: 18px;
+    line-height: 100px;
+    text-transform: uppercase;
+}
