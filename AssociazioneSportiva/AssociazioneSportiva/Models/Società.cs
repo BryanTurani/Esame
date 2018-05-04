@@ -11,47 +11,47 @@ namespace AssociazioneSportiva.Models
     {
         public int IdSocietà { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Nome: ")]
         public string Nome { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Partita IVA: ")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "La partita IVA deve avere 11 caratteri!")]
         public int PartitaIva { get; set; }
-
-        [Required]
+        
         [DisplayName("* Codice fiscale: ")]
         public int CodFiscaleSoc { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Indirizzo: ")]
         public string Indirizzo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Numero civico: ")]
         public int NumCivico { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Città: ")]
         public string Città { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Paese: ")]
         public string Paese { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Tipo di società: ")]
         public List<TipoSocietà> Tipo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Indirizzo eMail: ")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Indirizzo eMail certificato: ")]
         public string EmailCertificata { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obbligatorio")]
         [DisplayName("* Lista persone: ")]
         public List<Persona> Persone { get; set; }
     }
