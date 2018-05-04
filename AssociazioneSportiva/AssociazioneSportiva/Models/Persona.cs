@@ -57,6 +57,10 @@ namespace AssociazioneSportiva.Models
         [DisplayName("* Tipologia di persona: ")]
         public TipoPersona Tipologia { get; set; }
 
+        [Required(ErrorMessage = "Campo obbligatorio")]
+        [DisplayName("* Società: ")]
+        public Società Società { get; set; }
+
         [Required]
         [DisplayName("* Lista delle quote sociali pagate: ")]
         public List<QuotaSocialePagata> QuoteSocialiPagate { get; set; }
