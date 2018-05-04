@@ -6,7 +6,9 @@
                 <div asp-validation-summary="ModelOnly"></div>
                 <div class="col-xs-12 col-sm-6 col-lg-4">
                     <label asp-for="Tipo" class="control-label"></label>
-                    <select asp-for="Id"></select>
+                    <select asp-for="Id"
+                            class="form-control"
+                            asp-items="@{new SelectList(ViewBag.Società, "Id", "Name")}"></select>
                 </div>
             </div>
         </div>
