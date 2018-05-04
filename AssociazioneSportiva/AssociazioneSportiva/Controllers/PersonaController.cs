@@ -29,28 +29,6 @@ namespace AssociazioneSportiva.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Registration(SociFilterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var nuovoSocio = Socio.Map(model);
-                ctx.Socio.Add(nuovoSocio);
-
-                ctx.Registazione.Add(new Registrazione
-                {
-                    SocioId = newGuest.Id,
-                    Registration = DateTime.Now,
-                    VisitedPerson = model.VisitedPerson,
-                    MotivationId = Convert.ToInt32(model.Motivation),
-                    AreaId = Convert.ToInt32(model.Area),
-                    VisitStateId = (int)VisitStatus.Registered
-                });
-                ctx.SaveChanges();
-                return RedirectToAction(nameof(SuccedeedSave));
-            }
-            return View();
-        }
 
         public ActionResult SuccedeedSave()
         {
