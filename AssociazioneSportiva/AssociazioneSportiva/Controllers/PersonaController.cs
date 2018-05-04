@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AssociazioneSportiva.DataAccess;
+using AssociazioneSportiva.Models;
+using AssociazioneSportiva.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,26 +9,37 @@ using System.Threading.Tasks;
 
 namespace AssociazioneSportiva.Controllers
 {
-    public class PersonaController
+    public class PersonaController : Controller
     {
         private IRepository<Persona> _repository;
 
-        public ActionResult Registration()
+        public PersonaController(IRepository<Persona> repository)
+        {
+            _repository = repository;
+        }
+
+        public IActionResult Index()
+        {
+            var models = _repository.FindAll();
+
+            return View(models);
+        }
+        public IActionResult Registration()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Registration(RegistrationViewModel model)
+        public IActionResult Registration(SociFilterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var newGuest = Guest.Map(model);
-                ctx.Guests.Add(newGuest);
+                var nuovoSocio = Socio.Map(model);
+                ctx.Socio.Add(nuovoSocio);
 
-                ctx.Visits.Add(new Visit
+                ctx.Registazione.Add(new Registrazione
                 {
-                    GuestId = newGuest.Id,
+                    SocioId = newGuest.Id,
                     Registration = DateTime.Now,
                     VisitedPerson = model.VisitedPerson,
                     MotivationId = Convert.ToInt32(model.Motivation),

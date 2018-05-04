@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using AssociazioneSportiva.Models;
-using AssociazioneSportiva.ViewModels;
-using System.IO;
-using AssociazioneSportiva.Helpers;
+using AssociazioneSportiva.DataAccess;
 
 namespace AssociazioneSportiva.Controllers
 {
@@ -15,9 +8,6 @@ namespace AssociazioneSportiva.Controllers
     {
         private IRepository<Società> _repository;
 
-        // Dependency Injection
-        // Inietto un'istanza di IRepository<SuperHero>
-        // da fuori.
         public SocietàController(IRepository<Società> repository)
         {
             _repository = repository;
@@ -56,7 +46,7 @@ namespace AssociazioneSportiva.Controllers
                 return View(model);
             }
 
-            if (model.Id == 0)
+            if (model.IdSocietà == 0)
             {
                 _repository.Insert(model);
             }
@@ -68,45 +58,9 @@ namespace AssociazioneSportiva.Controllers
             }
 
             TempData["Message"] =
-                $"Aggiunta società '{model.Nome}'";
+                $"Modificata società '{model.Nome}'";
 
             return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var model = _repository.Find(id);
-
-            if (model == null)
-                return NotFound();
-
-            return View(model);
-        }
-
-        //[HttpPost]
-        //public void ExportToExcel(SociFilterViewModel vm)
-        //{
-        //    IEnumerable<SociFilterViewModel> visits = getFilteredSoci(vm);
-
-        //    var filename = "Lista soci-" + DateTime.Now.ToString();
-
-        //    var package = ExportHelpers.ToExcel(visits, filename);
-
-        //    using (var memoryStream = new MemoryStream())
-        //    {
-        //        package.SaveAs(memoryStream);
-        //        Response.ContentType = ExportHelpers.ExcelContentType;
-        //        Response.AddHeader("content-disposition", "attachment;  filename=" + filename + ".xlsx");
-        //        memoryStream.WriteTo(Response.OutputStream);
-        //        Response.Flush();
-        //        Response.End();
-        //    }
-        //}
-
-        //private IEnumerable<SociFilterViewModel> getFilteredSoci(SociFilterViewModel vm)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        }       
     }
 }

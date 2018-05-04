@@ -1,5 +1,3 @@
-using System;
-
 namespace AssociazioneSportiva.Models
 {
     public class ErrorViewModel
