@@ -56,9 +56,8 @@ namespace AssociazioneSportiva.Controllers
             }
             else
             {
-                var result = _repository.Update(model);
-                if (!result)
-                    return NotFound();
+               _repository.Update(model);
+               
             }
 
             TempData["Message"] =
