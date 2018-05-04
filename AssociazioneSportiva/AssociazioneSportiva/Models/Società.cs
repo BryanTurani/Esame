@@ -9,24 +9,18 @@ namespace AssociazioneSportiva.Models
 {
     public class Società
     {
+        public int IdSocietà { get; set; }
+
         [Required]
-        [DisplayName("* Nome della società: ")]
+        [DisplayName("* Nome: ")]
         public string Nome { get; set; }
-
-        [Required]
-        [DisplayName("* Codice della società: ")]
-        public int Id { get; set; }
-
-        [Required]
-        [DisplayName("* Tipo di società: ")]
-        public List<TipoSocietà> Tipo { get; set; }
 
         [Required]
         [DisplayName("* Partita IVA: ")]
         public int PartitaIva { get; set; }
 
         [Required]
-        [DisplayName("* CodiceFiscale della società: ")]
+        [DisplayName("* Codice fiscale: ")]
         public int CodFiscaleSoc { get; set; }
 
         [Required]
@@ -46,11 +40,15 @@ namespace AssociazioneSportiva.Models
         public string Paese { get; set; }
 
         [Required]
-        [DisplayName("* Indirizzo e-mail: ")]
+        [DisplayName("* Tipo di società: ")]
+        public List<TipoSocietà> Tipo { get; set; }
+
+        [Required]
+        [DisplayName("* Indirizzo eMail: ")]
         public string Email { get; set; }
 
         [Required]
-        [DisplayName("* e-mail certificata: ")]
+        [DisplayName("* Indirizzo eMail certificato: ")]
         public string EmailCertificata { get; set; }
 
         [Required]

@@ -10,7 +10,7 @@ namespace AssociazioneSportiva.Models
 {
     public class Persona
     {
-        public int Id { get; set; }
+        public int IdPersona { get; set; }
 
         [Required]
         [DisplayName("* Nome: ")]
@@ -22,15 +22,19 @@ namespace AssociazioneSportiva.Models
 
         [Required]
         [DisplayName("* Codice Fiscale: ")]
-        public string CodFiscalePers { get; set; }
+        public string CodFiscalePersona { get; set; }
 
-        [Range(typeof(DateTime), "1/1/1800", "1/1/2018")]
         [DisplayName("* Data di nascita: ")]
+        [Range(typeof(DateTime), "1/1/1800", "1/1/2018")]
         public DateTime DataDiNascita { get; set; }
 
         [Required]
-        [DisplayName("* Città Natale: ")]
+        [DisplayName("* Luogo di nascita: ")]
         public string LuogoDiNascita { get; set; }
+
+        [Required]
+        [DisplayName("* Paese: ")]
+        public string Paese { get; set; }
 
         [Required]
         [DisplayName("* Indirizzo: ")]
@@ -38,22 +42,14 @@ namespace AssociazioneSportiva.Models
 
         [Required]
         [DisplayName("* Numero civico: ")]
-        public int NumCivico { get; set; }
-
-        [Required]
-        [DisplayName("* Residenza: ")]
-        public string Residenza { get; set; }
-
-        [Required]
-        [DisplayName("* Paese: ")]
-        public string Paese { get; set; }
+        public int NumeroCivico { get; set; }
 
         [Required]
         [DisplayName("* Numero di telefono: ")]
         public int Telefono { get; set; }
 
         [Required]
-        [DisplayName("* Indirizzo e-mail: ")]
+        [DisplayName("* Indirizzo eMail: ")]
         public string Email { get; set; }
 
         [Required]
