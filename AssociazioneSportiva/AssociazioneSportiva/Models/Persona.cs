@@ -62,6 +62,10 @@ namespace AssociazioneSportiva.Models
         public Società Società { get; set; }
 
         [Required]
+        [DisplayName("* Società di appartenenza: ")]
+        public Società Società { get; set; }
+
+        [Required]
         [DisplayName("* Lista delle quote sociali pagate: ")]
         public List<QuotaSocialePagata> QuoteSocialiPagate { get; set; }
     }
