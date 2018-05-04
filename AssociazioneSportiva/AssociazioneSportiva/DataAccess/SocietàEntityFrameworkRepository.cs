@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,7 +27,7 @@ namespace AssociazioneSportiva.DataAccess
 
         public Società Find(int id)
         {
-            var models = _context.Società.FirstOrDefault(x => x.Id == id);
+            var models = _context.Società.FirstOrDefault(x => x.IdSocietà == id);
             return models;
             
         }

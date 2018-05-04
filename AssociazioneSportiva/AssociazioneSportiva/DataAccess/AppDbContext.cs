@@ -15,6 +15,5 @@ namespace AssociazioneSportiva.DataAccess
 
         public DbSet<Società> Società { get; set; }
         public DbSet<Persona> Persone { get; set; }
-        public DbSet<Tessera> Tessere { get; set; }
     }
 }

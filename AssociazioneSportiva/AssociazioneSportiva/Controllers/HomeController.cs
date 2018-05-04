@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace AssociazioneSportiva.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {

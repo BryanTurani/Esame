@@ -25,7 +25,7 @@ namespace AssociazioneSportiva.DataAccess
 
         public Persona Find(int id)
         {
-            var result = _context.Persone.FirstOrDefault(x => x.Id == id);
+            var result = _context.Persone.FirstOrDefault(x => x.IdPersona == id);
             return result;
         }
 
